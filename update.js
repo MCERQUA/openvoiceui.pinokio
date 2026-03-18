@@ -9,12 +9,12 @@ module.exports = {
       },
     },
 
-    // Pull latest code — track dev branch which gets fixes first
+    // Pull latest code from main
     {
       method: "shell.run",
       params: {
         path: "src",
-        message: "git fetch origin && git checkout dev && git pull origin dev",
+        message: "git pull",
       },
     },
 
