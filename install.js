@@ -9,11 +9,12 @@ module.exports = {
     },
 
     // Step 2: Clone or update the OpenVoiceUI repo into src/
+    // Uses || (works on Windows CMD and bash): clone if fresh, pull if exists
     {
       method: "shell.run",
       params: {
         message: [
-          "if [ -d src ]; then echo 'src/ exists — pulling latest...' && git -C src pull; else git clone https://github.com/MCERQUA/OpenVoiceUI src; fi",
+          "git clone https://github.com/MCERQUA/OpenVoiceUI src || git -C src pull",
           "git -C src rev-parse HEAD > src/GIT_HASH",
         ],
       },
