@@ -9,16 +9,19 @@ module.exports = {
       },
     },
 
-    // Pull latest code from main
+    // Pull latest code and bake SHA for registry check-in
     {
       method: "shell.run",
       params: {
         path: "src",
-        message: "git pull",
+        message: [
+          "git pull",
+          "git rev-parse HEAD > GIT_HASH",
+        ],
       },
     },
 
-    // Rebuild images with latest changes
+    // Rebuild images with latest changes (GIT_HASH baked in for check-in)
     {
       method: "shell.run",
       params: {

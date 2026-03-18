@@ -8,13 +8,13 @@ module.exports = {
       },
     },
 
-    // Step 2: Clone the OpenVoiceUI repo into src/
-    // Skips if src/ already exists (reinstall path)
+    // Step 2: Clone or update the OpenVoiceUI repo into src/
     {
       method: "shell.run",
       params: {
         message: [
-          "if [ -d src ]; then echo 'src/ already exists, skipping clone'; else git clone https://github.com/MCERQUA/OpenVoiceUI src; fi",
+          "if [ -d src ]; then echo 'src/ exists — pulling latest...' && git -C src pull; else git clone https://github.com/MCERQUA/OpenVoiceUI src; fi",
+          "git -C src rev-parse HEAD > src/GIT_HASH",
         ],
       },
     },
