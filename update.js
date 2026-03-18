@@ -9,12 +9,12 @@ module.exports = {
       },
     },
 
-    // Pull latest code from the main OpenVoiceUI repo
+    // Pull latest code — track dev branch which gets fixes first
     {
       method: "shell.run",
       params: {
         path: "src",
-        message: "git pull",
+        message: "git fetch origin && git checkout dev && git pull origin dev",
       },
     },
 

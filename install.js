@@ -14,7 +14,7 @@ module.exports = {
       method: "shell.run",
       params: {
         message: [
-          "if [ -d src ]; then echo 'src/ already exists, skipping clone'; else git clone https://github.com/MCERQUA/OpenVoiceUI src; fi",
+          "if [ -d src ]; then echo 'src/ already exists, skipping clone'; else git clone -b dev https://github.com/MCERQUA/OpenVoiceUI src; fi",
         ],
       },
     },
